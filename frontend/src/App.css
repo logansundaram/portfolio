@@ -1,0 +1,10 @@
+@import url("https://googleapis.com");
+@import "tailwindcss";
+
+
+.readout { font-variant-numeric: tabular-nums; }
+
+body { 
+  cursor: url("./assets/tick-cursor.svg") 12 12, auto;
+  font-family: "JetBrains Mono Variable", ui-monospace, monospace; font-feature-settings: "calt" 0;
+}

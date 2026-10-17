@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" shape-rendering="crispEdges">
+  <!-- Crosshair cursor. Center pixel = (12,12). Use: cursor: url(tick-cursor.svg) 12 12, crosshair; -->
+  <!-- Arms cover pixels 4–10 and 14–20 on each axis; pixels 11 and 13 are the gap; 12 is the dot. -->
+  <!-- Halo: translucent dark outline for light backgrounds. Remove this group if dark-only. -->
+  <g stroke="#000" stroke-opacity="0.6" stroke-width="3" stroke-linecap="butt">
+    <line x1="12.5" y1="4"  x2="12.5" y2="11" />
+    <line x1="12.5" y1="14" x2="12.5" y2="21" />
+    <line x1="4"  y1="12.5" x2="11" y2="12.5" />
+    <line x1="14" y1="12.5" x2="21" y2="12.5" />
+  </g>
+  <rect x="11" y="11" width="3" height="3" fill="#000" fill-opacity="0.6" />
+  <!-- Arms -->
+  <g stroke="#fff" stroke-width="1" stroke-linecap="butt">
+    <line x1="12.5" y1="4"  x2="12.5" y2="11" />
+    <line x1="12.5" y1="14" x2="12.5" y2="21" />
+    <line x1="4"  y1="12.5" x2="11" y2="12.5" />
+    <line x1="14" y1="12.5" x2="21" y2="12.5" />
+  </g>
+  <!-- Center dot -->
+  <rect x="12" y="12" width="1" height="1" fill="#fff" />
+</svg>
