@@ -9,6 +9,7 @@ import { AboutPage } from "./pages/AboutPage";
 import { WorkPage } from "./pages/WorkPage";
 import { NotesPage } from "./pages/NotesPage";
 import { Route, Routes } from "react-router";
+import { Footer } from "./components/Footer";
 
 function App() {
   const [coords, setCoords] = useState({ x: "0000", y: "0000" });
@@ -37,6 +38,7 @@ function App() {
         {/*<Route path="*" element={<NotFound />} />*/}
       </Routes>
       <CursorReadout positionX={coords.x} positionY={coords.y} />
+      <Footer />
     </div>
   );
 }

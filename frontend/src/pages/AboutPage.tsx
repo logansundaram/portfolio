@@ -1,11 +1,24 @@
 export const AboutPage = () => {
   return (
     <div className="text-white p-25">
-      <div className="text-amber-500 text-4xl p-25">
+      <div className="text-amber-500 text-4xl pt-40 pb-20">
         hi. my name is logan sundaram.
       </div>
-      <div>
+      <div className="py-10">
         <div className="text-2xl py-5">about me:</div>
+        <div>
+          <p>
+            i’m an electrical engineering student at michigan working toward
+            designing gpus and ai accelerators. right now that means working the
+            whole stack from the top down: an open-source agent runtime that
+            runs open-weight models entirely on local hardware, a cuda
+            microbenchmark suite that measures what a blackwell gpu is actually
+            doing underneath, and the architecture coursework that gets me from
+            measuring the hardware to building it.
+          </p>
+        </div>
+      </div>
+      <div>
         <p className="">
           <p>major: electrical engineering</p>
           <p>minor: computer science</p>
