@@ -1,9 +1,17 @@
+import { NavLink } from "react-router";
+
 export const Navbar = () => {
   return (
-    <div className="text-white flex gap-4 p-2">
-      <div className="hover:text-blue-900">about</div>
-      <div>work</div>
-      <div>notes</div>
+    <div className="text-white flex gap-12 p-25 fixed">
+      <NavLink to="/" className="hover:text-amber-400">
+        about
+      </NavLink>
+      <NavLink to="/work" className="hover:text-amber-400">
+        work
+      </NavLink>
+      <NavLink to="/notes" className="hover:text-amber-400">
+        notes
+      </NavLink>
     </div>
   );
 };
