@@ -24,7 +24,7 @@ function App() {
   };
 
   return (
-    <div onMouseMove={handleMouseMove} className="bg-zinc-900 ">
+    <div onMouseMove={handleMouseMove} className="bg-zinc-900">
       <Navbar />
       <RulerTop />
       <RulerLeft />

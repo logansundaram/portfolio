@@ -1,7 +1,21 @@
+import { useEffect, useRef } from "react";
+
 export const RulerLeft = () => {
   const COUNT = 50;
+  const rulerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (rulerRef.current) {
+        rulerRef.current.style.transform = `translateY(${-window.scrollY}px)`;
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <div className="flex flex-col fixed text-zinc-600 text-[10px] gap-y-10 select-none">
+    <div ref={rulerRef} className="flex flex-col fixed text-zinc-600 text-[10px] gap-y-10 select-none">
       {Array.from({ length: COUNT }).map((_, index) =>
         index % 2 == 0 ? (
           <div className="relative">
