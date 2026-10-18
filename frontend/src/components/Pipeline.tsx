@@ -334,8 +334,8 @@ export const Pipeline = () => {
       </svg>
 
       <div className="readout flex justify-between gap-4 pt-3">
-        <span className="text-zinc-600 shrink-0">lc2k 5-stage</span>
-        <span className={focus === null ? "text-zinc-600" : focus in PATHS ? "text-amber-500" : "text-zinc-300"}>
+        <span className="text-zinc-500 shrink-0">lc2k 5-stage</span>
+        <span className={focus === null ? "text-zinc-400" : focus in PATHS ? "text-amber-500" : "text-zinc-300"}>
           {focus ? CAPTION[focus] : "hover to trace"}
         </span>
       </div>

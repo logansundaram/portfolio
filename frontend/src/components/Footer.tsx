@@ -7,8 +7,8 @@ const links = [
 
 export const Footer = () => {
   return (
-    <footer className="mx-25 border-t border-zinc-700 pt-6 pb-10 text-sm text-zinc-500">
-      <div className="flex flex-wrap gap-x-10 gap-y-2">
+    <footer className="mx-12 md:mx-25 border-t border-zinc-700 pt-6 pb-10 text-sm text-zinc-500">
+      <div className="flex flex-wrap gap-x-6 md:gap-x-10 gap-y-2">
         <span>contact:</span>
         {links.map(({ label, href }) => (
           <a

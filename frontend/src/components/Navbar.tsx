@@ -7,7 +7,7 @@ const linkClass = ({ isActive }: { isActive: boolean }) =>
 
 export const Navbar = () => {
   return (
-    <div className="text-zinc-300 flex gap-12 p-25 fixed">
+    <div className="text-zinc-300 flex gap-6 md:gap-12 p-12 md:p-25 md:fixed whitespace-nowrap text-sm md:text-base">
       <NavLink to="/" end className={linkClass}>
         [ about ]
       </NavLink>

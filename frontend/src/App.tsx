@@ -1,4 +1,3 @@
-import { useState, type MouseEvent } from "react";
 import "@fontsource-variable/jetbrains-mono";
 import "./App.css";
 import { CursorReadout } from "./components/CursorReadout";
@@ -8,23 +7,13 @@ import { RulerTop } from "./components/RulerTop";
 import { AboutPage } from "./pages/AboutPage";
 import { WorkPage } from "./pages/WorkPage";
 import { NotesPage } from "./pages/NotesPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 import { Route, Routes } from "react-router";
 import { Footer } from "./components/Footer";
 
 function App() {
-  const [coords, setCoords] = useState({ x: "0000", y: "0000" });
-
-  const pad = (n: any) => String(Math.round(n)).padStart(4, "0");
-
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    setCoords({
-      x: pad(e.clientX),
-      y: pad(e.clientY),
-    });
-  };
-
   return (
-    <div onMouseMove={handleMouseMove} className="bg-zinc-900">
+    <div className="bg-zinc-900">
       <Navbar />
       <RulerTop />
       <RulerLeft />
@@ -35,9 +24,9 @@ function App() {
         <Route path="/notes" element={<NotesPage />} />
 
         {/* Fallback Route (404 Page) */}
-        {/*<Route path="*" element={<NotFound />} />*/}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      <CursorReadout positionX={coords.x} positionY={coords.y} />
+      <CursorReadout />
       <Footer />
     </div>
   );

@@ -8,11 +8,11 @@ export const AboutPage = () => {
         <p>
           i’m an electrical engineering student at michigan working toward
           designing gpus and ai accelerators. right now that means working the
-          whole stack from the top down: an open-source agent runtime that
-          runs open-weight models entirely on local hardware, a cuda
-          microbenchmark suite that measures what a blackwell gpu is actually
-          doing underneath, and the architecture coursework that gets me from
-          measuring the hardware to building it.
+          whole stack from the top down: an open-source agent runtime that runs
+          open-weight models entirely on local hardware, a cuda microbenchmark
+          suite that measures what a blackwell gpu is actually doing underneath,
+          and the architecture coursework that gets me from measuring the
+          hardware to building it.
         </p>
       </div>
       <div>
@@ -37,7 +37,7 @@ export const AboutPage = () => {
     EECS 312  Digital Integrated Circuits         (W27)
     EECS 482  Operating Systems                   (W27)
     EECS 427  VLSI Design I                       (F27)
-    EECS 471  Applied Parallel Programming        (W28)`}</pre>
+    EECS 471  Applied Parallel Programming        (F27)`}</pre>
       </div>
     </Page>
   );

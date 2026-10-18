@@ -2,8 +2,16 @@
 
 .readout { font-variant-numeric: tabular-nums; }
 
+/* long preformatted lines scroll inside their block instead of widening the page */
+pre { max-width: 100%; overflow-x: auto; }
+
 body {
   background: #18181b;
   cursor: url("./assets/tick-cursor.svg") 12 12, auto;
   font-family: "JetBrains Mono Variable", ui-monospace, monospace; font-feature-settings: "calt" 0;
+}
+
+/* links close the reticle and turn it amber instead of showing the hand pointer */
+a, button {
+  cursor: url("./assets/tick-cursor-active.svg") 12 12, pointer;
 }
