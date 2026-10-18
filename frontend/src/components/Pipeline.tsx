@@ -3,7 +3,7 @@ import { useState } from "react";
 // ---------------------------------------------------------------------------
 // the lc2k 5-stage pipeline datapath, rotated so data flows top to bottom.
 // pipeline registers are the horizontal bars; stage logic sits between them.
-// static drawing; hovering a stage or a feedback path traces it.
+// static drawing; hovering (or tapping, on touch) a stage or a feedback path traces it.
 // ---------------------------------------------------------------------------
 
 const W = 400;
@@ -224,6 +224,7 @@ export const Pipeline = () => {
             fill="transparent"
             onMouseEnter={() => setFocus(b.stage)}
             onMouseLeave={() => setFocus(null)}
+            onClick={() => setFocus(b.stage)}
           />
         ))}
 
@@ -329,6 +330,7 @@ export const Pipeline = () => {
             pointerEvents="stroke"
             onMouseEnter={() => setFocus(key)}
             onMouseLeave={() => setFocus(null)}
+            onClick={() => setFocus(key)}
           />
         ))}
       </svg>
@@ -336,7 +338,14 @@ export const Pipeline = () => {
       <div className="readout flex justify-between gap-4 pt-3">
         <span className="text-zinc-500 shrink-0">lc2k 5-stage</span>
         <span className={focus === null ? "text-zinc-400" : focus in PATHS ? "text-amber-500" : "text-zinc-300"}>
-          {focus ? CAPTION[focus] : "hover to trace"}
+          {focus ? (
+            CAPTION[focus]
+          ) : (
+            <>
+              <span className="pointer-coarse:hidden">hover to trace</span>
+              <span className="hidden pointer-coarse:inline">tap to trace</span>
+            </>
+          )}
         </span>
       </div>
     </div>

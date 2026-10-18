@@ -15,7 +15,8 @@ export const CursorReadout = () => {
   }, []);
 
   return (
-    <div className="readout text-zinc-500 text-sm fixed bottom-25 right-8 md:right-25 p-3">
+    // hidden on small screens: it sat on top of body text there and a touch device never moves it
+    <div className="readout hidden md:block text-zinc-500 text-sm fixed bottom-25 right-25 p-3">
       <span className="absolute border-l border-zinc-500 top-0 left-0 size-2" />
       <span className="absolute border-t border-zinc-500 top-0 left-0 size-2" />
 

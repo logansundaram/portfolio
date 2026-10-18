@@ -4,14 +4,14 @@ export const NotesPage = () => {
   return (
     <Page title="things i’m figuring out.">
       <div className="pb-10">
-        <div className="text-2xl pb-5">notes:</div>
+        <h2 className="text-2xl pb-5">notes:</h2>
         <p>
           short writeups on things i’ve measured, read, or gotten wrong. mostly
           gpus, computer architecture, and running models locally.
         </p>
       </div>
       <div className="pb-10">
-        <div className="text-2xl pb-5">recent:</div>
+        <h2 className="text-2xl pb-5">recent:</h2>
         <pre className="font-bold whitespace-pre-wrap">{"2026-10-18  start of the portfolio"}</pre>
         <p className="pb-4">
           created my portfolio using vite + react + tailwind + react-router

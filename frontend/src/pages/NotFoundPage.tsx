@@ -7,7 +7,7 @@ export const NotFoundPage = () => {
   return (
     <Page title="404. nothing here.">
       <div className="pb-10">
-        <div className="text-2xl pb-5">not found:</div>
+        <h2 className="text-2xl pb-5">not found:</h2>
         <p>
           this route doesn’t exist. it may have moved, or it may never have
           been built.

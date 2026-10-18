@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Page } from "../components/Page";
 
 interface Entry {
@@ -20,9 +21,9 @@ const entries: Entry[] = [
     ],
     meta: [
       ["status", "in progress (nov 2025 – present)"],
-      ["stack", "rust, llama.cpp, mcp, sqlite"],
+      ["stack", "python, langgraph, ollama, mcp, sqlite"],
       ["size", "41k loc, 1,152 tests, mit"],
-      ["repo", "https://github.com/logansundaram"],
+      ["repo", "https://github.com/saturday-ai/saturn"],
       ["site", "https://saturdayai.org"],
     ],
   },
@@ -38,7 +39,7 @@ const entries: Entry[] = [
     meta: [
       ["status", "summer – fall 2026"],
       ["stack", "cuda, c++, python, llama.cpp"],
-      ["repo", "https://github.com/logansundaram"],
+      ["repo", "https://github.com/logansundaram/nvidia-uarch-microbench"],
     ],
   },
   {
@@ -61,7 +62,8 @@ const entries: Entry[] = [
     bullets: [
       "designed a board-level voc-sensing subsystem integrated into the existing bms, balancing power, signal integrity, and size/cost.",
       "built the single-cell and full-pack r-2rc equivalent-circuit model: hppc and c/20 ocv characterization of candidate cells, r0/r1/r2/c1/c2 parameterized vs. state of charge from pulse data, simulated terminal voltage validated against test data.",
-      "drive race-pack cell and series/parallel selection by simulating candidate configurations over race drive cycles in about:energy and matlab/simulink (impedance loss, efficiency, thermal), and implemented coulomb-counting soc firmware.",
+      "selected race-pack cells and the series/parallel configuration by simulating candidates over race drive cycles in about:energy and matlab/simulink, comparing impedance loss, efficiency, and thermal behavior.",
+      "wrote coulomb-counting state-of-charge firmware for the pack.",
     ],
     meta: [
       ["status", "ongoing (aug 2025 – present)"],
@@ -85,15 +87,18 @@ const entries: Entry[] = [
   },
 ];
 
-const metaBlock = (meta: [string, string][]) =>
-  meta.map(([k, v]) => `${(k + ":").padEnd(10)}${v}`).join("\n");
+const isUrl = (v: string) => /^https?:\/\//.test(v);
+// show the url without its scheme, the way the footer shows bare labels;
+// github repos read as owner/name, the way github itself refers to them
+const urlLabel = (v: string) =>
+  v.replace(/^https?:\/\/(github\.com\/)?/, "").replace(/\/$/, "");
 
 export const WorkPage = () => {
   return (
-    <Page title="things i’ve built.">
+    <Page title="things i’ve worked on.">
       {entries.map((e) => (
         <div key={e.title} className="pb-10">
-          <div className="text-2xl pb-5">{e.title}:</div>
+          <h2 className="text-2xl pb-5">{e.title}:</h2>
           <p>{e.summary}</p>
           <ul className="pt-4 flex flex-col gap-2 text-zinc-400">
             {e.bullets.map((b) => (
@@ -102,9 +107,28 @@ export const WorkPage = () => {
               </li>
             ))}
           </ul>
-          <pre className="pt-5 whitespace-pre-wrap wrap-anywhere text-sm md:text-base">
-            {metaBlock(e.meta)}
-          </pre>
+          {/* two aligned columns on desktop; stacked pairs on phones where a url would not fit beside its label */}
+          <dl className="pt-5 grid grid-cols-1 md:grid-cols-[10ch_minmax(0,1fr)] text-sm md:text-base">
+            {e.meta.map(([k, v]) => (
+              <Fragment key={k}>
+                <dt>{k}:</dt>
+                <dd className="wrap-anywhere pl-4 mb-2 last:mb-0 md:pl-0 md:mb-0">
+                  {isUrl(v) ? (
+                    <a
+                      href={v}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-zinc-400 hover:text-amber-500"
+                    >
+                      [&nbsp;{urlLabel(v)}&nbsp;]
+                    </a>
+                  ) : (
+                    v
+                  )}
+                </dd>
+              </Fragment>
+            ))}
+          </dl>
         </div>
       ))}
     </Page>
